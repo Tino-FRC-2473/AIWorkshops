@@ -15,7 +15,8 @@ def get_model():
     return model
 
 def trainModel(model, inp, out):
-    model.fit(x=inp, y=out, batch_size=32, epochs=300, verbose=2, callbacks=None, shuffle=True, initial_epoch=0)
+    tbCallBack = keras.callbacks.TensorBoard(log_dir='logger/run_a', histogram_freq=0.0016, batch_size=32, write_graph=True, write_grads=False, write_images=True, embeddings_freq=0, embeddings_layer_names=None, embeddings_metadata=None)
+    model.fit(x=inp, y=out, batch_size=32, epochs=300, verbose=2, callbacks=[tbCallBack], shuffle=True, initial_epoch=0)
     modelName = "trained.h5"
     model.save(modelName)
     return model
