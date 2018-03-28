@@ -7,7 +7,7 @@ import os
 
 batch_size = 32
 num_classes = 10
-epochs = 100
+epochs = 20
 num_predictions = 20
 
 # The data
